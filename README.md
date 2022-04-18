@@ -12,11 +12,22 @@ In light of challenges and the characteristic of Automated retail checkout, we p
 ## Data Preparing
 
 ### 1. Training
-1. Download images and annotations for training detection from http://www.crowdhuman.org/.
-2. Download images for training classification from http://www.crowdhuman.org/.
+1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1wmKbIXMMPBAw-XhpgbCr6V8Mn8EtRVZh/view?usp=sharing).
+2. Download images for training classification from [GoogleDrive-cls](https://drive.google.com/file/d/1wmKbIXMMPBAw-XhpgbCr6V8Mn8EtRVZh/view?usp=sharing).
+```
+data
+├── coco
+│   └── annotations
+│   └── train2017
+│   └── val2017
+├── cls
+│   └── meta
+│   └── train
+│   └── val
+```
 
 ### 2. Testing
-Please place the videos you want to test in the [test_videos](./test_videos/) folder.
+Please place the videos you want to test in the [test_videos](./test_videos) folder.
 ```
 test_videos/
 ├── testA_1.mp4
