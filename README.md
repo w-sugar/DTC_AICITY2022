@@ -13,7 +13,7 @@ In light of challenges and the characteristic of Automated retail checkout, we p
 
 ### 1. Training
 1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1wmKbIXMMPBAw-XhpgbCr6V8Mn8EtRVZh/view?usp=sharing).
-2. Download images for training classification from [GoogleDrive-cls](https://drive.google.com/file/d/1wmKbIXMMPBAw-XhpgbCr6V8Mn8EtRVZh/view?usp=sharing).
+2. Download images for training classification from [GoogleDrive-cls](https://drive.google.com/file/d/1k1k6b-cQ9UEh5_L3pVi1DHuYeqovi2Va/view?usp=sharing).
 ```
 data
 ├── coco
@@ -41,6 +41,24 @@ test_videos/
 ## Quick & Easy Start
 
 ### 1. Environments settings
+
+* python 3.7.12
+* pytorch 1.10.0
+* torchvision 0.11.1
+* cuda 10.2
+* mmcv-full 1.4.2
+* tensorflow-gpu 1.15.0
+
+```
+1. conda create -n DTC python=3.7
+2. conda activate DTC
+3. git clone https://github.com/w-sugar/DTC_AICITY2022
+4. cd DTC_AICITY2022
+5. pip install -r requirements.txt
+6. python mmdetection/setup.py build develop
+7. python mmclassification/setup.py build develop
+8. [Data Preparing](##Data Preparing)
+```
 
 ### 2. Train/Test:
 
