@@ -9,7 +9,7 @@ In light of challenges and the characteristic of Automated retail checkout, we p
 
 ![introfig](./images/intro.png)
 
-[Data Preparing](##Data-Preparing)
+## Data-Preparing
 
 ### 1. Training
 1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1zhIEYGuDviOr4N5ZV8nNbWcIDSB2a2oY/view?usp=sharing).
@@ -49,7 +49,7 @@ test_videos/
 * mmcv-full 1.4.2
 * tensorflow-gpu 1.15.0
 
-```
+```shell
 1. conda create -n DTC python=3.7
 2. conda activate DTC
 3. git clone https://github.com/w-sugar/DTC_AICITY2022
@@ -57,10 +57,33 @@ test_videos/
 5. pip install -r requirements.txt
 6. python mmdetection/setup.py build develop
 7. python mmclassification/setup.py build develop
-8. Prepare data by following [here](##Data-Preparing)
 ```
+Prepare train&test data by following [here](##Data-Preparing)
 
 ### 2. Train/Test:
+
+* Step1: training.
+```shell
+# 1. Train Detector
+# a. Single GPU
+python ./mmdetection/tools/train.py ./mmdetection/configs/detectors/detectors_cascade_rcnn_r50_1x_coco.py
+# b. Multi GPUs(e.g. 2 GPUs)
+bash ./mmdetection/tools/dist_train.sh ./mmdetection/configs/detectors/detectors_cascade_rcnn_r50_1x_coco.py 2
+
+# 2. Train Classifier
+# a. Single GPU
+bash ./mmclassification/tools/train_single.sh
+# b. Multi GPUs(e.g. 2 GPUs)
+bash ./mmclassification/tools/train_multi.sh 2
+```
+
+* Step2: testing.
+```shell
+# 1. Use the FFmpeg library to extract/count frames.
+python tools/extract_frames.py --out_folder ./frames
+# 2. DTC
+python tools/test_net.py --input_folder ./frames --out_file ./results.txt
+```
 
 # Contact
 
