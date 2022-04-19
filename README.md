@@ -55,8 +55,7 @@ test_videos/
 3. git clone https://github.com/w-sugar/DTC_AICITY2022
 4. cd DTC_AICITY2022
 5. pip install -r requirements.txt
-6. python mmdetection/setup.py build develop
-7. python mmclassification/setup.py build develop
+6. sh ./tools/setup.sh
 ```
 Prepare train&test data by following [here](#data-preparing)
 
