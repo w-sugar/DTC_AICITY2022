@@ -9,10 +9,10 @@ In light of challenges and the characteristic of Automated retail checkout, we p
 
 ![introfig](./images/intro.png)
 
-## Data Preparing
+[Data Preparing](##Data-Preparing)
 
 ### 1. Training
-1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1wmKbIXMMPBAw-XhpgbCr6V8Mn8EtRVZh/view?usp=sharing).
+1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1zhIEYGuDviOr4N5ZV8nNbWcIDSB2a2oY/view?usp=sharing).
 2. Download images for training classification from [GoogleDrive-cls](https://drive.google.com/file/d/1k1k6b-cQ9UEh5_L3pVi1DHuYeqovi2Va/view?usp=sharing).
 ```
 data
@@ -57,7 +57,7 @@ test_videos/
 5. pip install -r requirements.txt
 6. python mmdetection/setup.py build develop
 7. python mmclassification/setup.py build develop
-8. [Data Preparing](##Data Preparing)
+8. Prepare data by following [here](##Data-Preparing)
 ```
 
 ### 2. Train/Test:
