@@ -58,7 +58,7 @@ test_videos/
 6. python mmdetection/setup.py build develop
 7. python mmclassification/setup.py build develop
 ```
-Prepare train&test data by following [here](##Data-Preparing)
+Prepare train&test data by following [here](#data-preparing)
 
 ### 2. Train/Test:
 
@@ -78,6 +78,18 @@ bash ./mmclassification/tools/train_multi.sh 2
 ```
 
 * Step2: testing.
+Please place the all models in the [checkpoints](./checkpoints) folder. These models can be downloaded from [Model-Zoo](https://drive.google.com/file/d/1nD80vqJQGEE2fL-sMx-cm6O5Q-uL7kF-/view?usp=sharing)
+```
+checkpoints/
+├── s101.pth
+├── s50.pth
+├── feature.pth
+├── b2.pth
+├── detectors_htc_r50_1x_coco-329b1453.pth
+├── detectors_cascade_rcnn.pth
+```
+
+Command line
 ```shell
 # 1. Use the FFmpeg library to extract/count frames.
 python tools/extract_frames.py --out_folder ./frames
