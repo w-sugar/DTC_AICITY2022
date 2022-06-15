@@ -1,6 +1,6 @@
 _base_ = ['../_base_/models/resnest50.py',
 
-          '../_base_/default_runtime.py',]
+          '../_base_/default_runtime_resnest50.py',]
 # dataset settings
 dataset_type = 'MyDataset'
 img_lighting_cfg = dict(
@@ -147,19 +147,19 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        data_prefix='/home/spring/sugar/aicity/alladd2/train',#***************
-        ann_file='/home/spring/sugar/aicity/alladd2/meta/train.txt',#****************
+        data_prefix='./data/alladd2/train',#***************
+        ann_file='./data/alladd2/meta/train.txt',#****************
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        data_prefix='/home/spring/sugar/aicity/alladd2/val',#******************
-        ann_file='/home/spring/sugar/aicity/alladd2/meta/val.txt',#***************
+        data_prefix='./data/alladd2/val',#******************
+        ann_file='./data/alladd2/meta/val.txt',#***************
         pipeline=test_pipeline),
     test=dict(
         # replace `data/val` with `data/test` for standard test
         type=dataset_type,
-        data_prefix='/home/spring/sugar/aicity/alladd2/val',#********************
-        ann_file='/home/spring/sugar/aicity/alladd2/meta/val.txt',#*******************
+        data_prefix='./data/alladd2/val',#********************
+        ann_file='./data/alladd2/meta/val.txt',#*******************
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='accuracy')
 

@@ -3,7 +3,7 @@ _base_ = [
     # '../_base_/datasets/mydataset2.py',
     '../_base_/datasets/imagenet_bs64_autoaug.py',
     '../_base_/schedules/imagenet_bs256.py',#修改lr,epoch等
-    '../_base_/default_runtime.py',
+    '../_base_/default_runtime_b0.py',
 ]
 
 # dataset settings

@@ -37,18 +37,18 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        data_prefix='/home/qsh/mmclassification/new/alladd2/train',#***************
-        ann_file='/home/qsh/mmclassification/new/alladd2/meta/train.txt',#****************
+        data_prefix='./data/alladd2/train',#***************
+        ann_file='./data/alladd2/meta/train.txt',#****************
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        data_prefix='/home/qsh/mmclassification/new/alladd2/val',#******************
-        ann_file='/home/qsh/mmclassification/new/alladd2/meta/val.txt',#***************
+        data_prefix='./data/alladd2/val',#******************
+        ann_file='./data/alladd2/meta/val.txt',#***************
         pipeline=test_pipeline),
     test=dict(
         # replace `data/val` with `data/test` for standard test
         type=dataset_type,
-        data_prefix='/home/qsh/mmclassification/new/alladd2/val',#********************
-        ann_file='/home/qsh/mmclassification/new/alladd2/meta/val.txt',#*******************
+        data_prefix='./data/alladd2/val',#********************
+        ann_file='./data/alladd2/meta/val.txt',#*******************
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='accuracy')

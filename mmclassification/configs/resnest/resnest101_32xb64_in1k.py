@@ -1,6 +1,6 @@
 _base_ = ['../_base_/models/resnest101.py',
           '../_base_/datasets/imagenet_bs64_autoaug.py',
-          '../_base_/default_runtime.py']
+          '../_base_/default_runtime_resnest101.py']
 
 # dataset settings
 # dataset_type = 'MyDataset'

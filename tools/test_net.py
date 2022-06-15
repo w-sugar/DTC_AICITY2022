@@ -62,6 +62,8 @@ def find_traywohand(model, frame):
     if len(bbox_result[0]) == 0:
         return None
     # white tray
+    if len(bbox_result[61]) == 0:
+        return None
     tray_bboxes = np.vstack(bbox_result[61])
     index_trays = np.argsort(tray_bboxes[:, -1])
     # person
@@ -144,7 +146,7 @@ def maskhand(frame, tray, segms, maskframe):
 
 def getscore(model, video_id, img, list_det):
     roi = img[int(list_det[3]):int(list_det[3] + list_det[5]), int(list_det[2]):int(list_det[2] + list_det[4])]
-    # cv2.imwrite(os.path.join('/home/qsh/crop_test/2', 'img_%04d.jpg'%(list_det[0])), roi)
+    # cv2.imwrite(os.path.join('./crop_test/2', 'img_%06d.jpg'%(list_det[0])), roi)
     result, scores, features = inference_model(model, roi)
     line_new = [video_id] + list(list_det[:6]) + list(scores[0])
     return line_new
@@ -211,7 +213,7 @@ def process(video_id):
     start_time = time.time()
     white_tray = None
     for fid in range(1, len(os.listdir(frame_path)) + 1, 100):
-        frame = os.path.join(frame_path, 'img_%04d.jpg'%(fid))
+        frame = os.path.join(frame_path, 'img_%06d.jpg'%(fid))
         frame = cv2.imread(frame)
         result = find_traywohand(pretrain_detector, frame)
         if result is not None:
@@ -220,7 +222,7 @@ def process(video_id):
             break
     if white_tray is None:
         for fid in range(1, len(os.listdir(frame_path)) + 1):
-            frame = os.path.join(frame_path, 'img_%04d.jpg'%(fid))
+            frame = os.path.join(frame_path, 'img_%06d.jpg'%(fid))
             frame = cv2.imread(frame)
             result = find_traywohand(pretrain_detector, frame)
             if result is not None:
@@ -241,7 +243,7 @@ def process(video_id):
     # for fid in range(750, 770):
         start_time = time.time()
         # crop and mask
-        frame = os.path.join(frame_path, 'img_%04d.jpg'%(fid))
+        frame = os.path.join(frame_path, 'img_%06d.jpg'%(fid))
         # frame = np.array(Image.open(frame))
         frame = cv2.imread(frame)
         frame_crop = crop(frame, white_tray)
@@ -267,7 +269,7 @@ def process(video_id):
             if rm_instance in results:
                 results.remove(rm_instance)
         # -------------------------------
-        # cv2.imwrite(os.path.join('/home/qsh/crop_test/1', 'img_%04d.jpg'%(fid)), frame_crop)
+        # cv2.imwrite(os.path.join('./crop_test/1', 'img_%06d.jpg'%(fid)), frame_crop)
         # -------------------------------
         # classify
         for i in results:

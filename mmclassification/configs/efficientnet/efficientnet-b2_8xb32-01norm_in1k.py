@@ -3,7 +3,7 @@ _base_ = [
     # '../_base_/datasets/imagenet_bs32.py',
     '../_base_/datasets/imagenet_bs64_autoaug.py',
     '../_base_/schedules/imagenet_bs256.py',
-    '../_base_/default_runtime.py',
+    '../_base_/default_runtime_b2.py',
 ]
 
 # dataset settings

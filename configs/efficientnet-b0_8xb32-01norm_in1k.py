@@ -43,8 +43,8 @@ data = dict(
     workers_per_gpu=4,
     train=dict(
         type='MyDataset',
-        data_prefix='/home/qsh/mmclassification/new/add2/train',
-        ann_file='/home/qsh/mmclassification/new/add2/meta/train.txt',
+        data_prefix='./data/add2/train',
+        ann_file='./data/add2/meta/train.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='RandomResizedCrop', size=224),
@@ -66,8 +66,8 @@ data = dict(
         ]),
     val=dict(
         type='MyDataset',
-        data_prefix='/home/qsh/mmclassification/new/add2/val',
-        ann_file='/home/qsh/mmclassification/new/add2/meta/val.txt',
+        data_prefix='./data/add2/val',
+        ann_file='./data/add2/meta/val.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='Resize', size=(256, -1)),
@@ -82,8 +82,8 @@ data = dict(
         ]),
     test=dict(
         type='MyDataset',
-        data_prefix='/home/qsh/mmclassification/new/add2/val',
-        ann_file='/home/qsh/mmclassification/new/add2/meta/val.txt',
+        data_prefix='./data/add2/val',
+        ann_file='./data/add2/meta/val.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='Resize', size=(256, -1)),

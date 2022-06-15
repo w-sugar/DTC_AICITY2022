@@ -23,16 +23,12 @@ if __name__ == '__main__':
     for file in os.listdir(path):
         if file.endswith('.txt'):
             with open(os.path.join(path, file), 'r') as f:
-                lines = f.readlines()
-                for i in range(len(lines)):
-                    if i == len(lines) - 1:
-                        video_id, video_name = lines[i].split(" ")
-                    else:
-                        video_id, video_name = lines[i].split(" ")
-                        video_name = video_name[:-1]
+                for l in f:
+                    l = l.strip()
+                    video_id, video_name = l.split(" ")
                     if not os.path.exists(os.path.join(save_path, video_id)):
                         os.makedirs(os.path.join(save_path, video_id))                
-                    command = 'ffmpeg -i {} -q:v 2 -f image2 {}/img_%04d.jpg'.format(os.path.join(path, video_name), os.path.join(save_path, video_id))
+                    command = 'ffmpeg -i {} -q:v 2 -f image2 {}/img_%06d.jpg'.format(os.path.join(path, video_name), os.path.join(save_path, video_id))
                     print(command)
                     p = subprocess.Popen(command, shell=True)
                     p.wait()
