@@ -14,16 +14,24 @@ In light of challenges and the characteristic of Automated retail checkout, we p
 ### 1. Training
 1. Download images and annotations for training detection from [GoogleDrive-det](https://drive.google.com/file/d/1zhIEYGuDviOr4N5ZV8nNbWcIDSB2a2oY/view?usp=sharing).
 2. Download images for training classification from [GoogleDrive-cls](https://drive.google.com/file/d/1k1k6b-cQ9UEh5_L3pVi1DHuYeqovi2Va/view?usp=sharing).
+3. Download pre-trained models for training from [GoogleDrive-models](https://drive.google.com/file/d/1V0cFkuZWHTaLlYuZnFhIhhT3HgWJMWbG/view?usp=sharing)
 ```
 data
-├── coco
+├── coco_offline_MSRCR_GB_halfbackground_size100_no-ob_1
 │   └── annotations
 │   └── train2017
 │   └── val2017
-├── cls
+├── alladd2
 │   └── meta
 │   └── train
 │   └── val
+
+models
+├── detectors_cascade_rcnn_r50_1x_coco-32a10ba0.pth
+├── efficientnet-b0_3rdparty_8xb32_in1k_20220119-a7e2a0b1.pth
+├── efficientnet-b2_3rdparty_8xb32_in1k_20220119-ea374a30.pth
+├── resnest50_imagenet_converted-1ebf0afe.pth
+├── resnest101_imagenet_converted-032caa52.pth
 ```
 
 ### 2. Testing
@@ -94,6 +102,8 @@ Command line
 python tools/extract_frames.py --out_folder ./frames
 # 2. DTC
 python tools/test_net.py --input_folder ./frames --out_file ./results.txt
+# Note: If using your own trained model weights, use the following command:
+python tools/test_net.py --input_folder ./frames --out_file ./results.txt --detector ./mmdetection/work_dirs/detectors_cascade_rcnn/latest.pth --feature ./mmclassification/work_dirs/b0/latest.pth --b2 ./mmclassification/work_dirs/b2/latest.pth --resnest50 ./mmclassification/work_dirs/resnest50/latest.pth --resnest101 ./mmclassification/work_dirs/resnest101/latest.pth
 ```
 
 # Contact

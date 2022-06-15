@@ -19,6 +19,12 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Test net')
     parser.add_argument('--input_folder', help='the frames path')
     parser.add_argument('--out_file', help='the dir to save results')
+    parser.add_argument('--detector', help='detector path', default="checkpoints/detectors_cascade_rcnn.pth")
+    parser.add_argument('--feature', help='feature path', default="checkpoints/feature.pth")
+    parser.add_argument('--b2', help='b2 path', default="checkpoints/b2.pth")
+    parser.add_argument('--resnest50', help='r50 path', default="checkpoints/s50.pth")
+    parser.add_argument('--resnest101', help='r101 path', default="checkpoints/s101.pth")
+
     args = parser.parse_args()
     if args.input_folder is None:
         raise ValueError('--input_folder is None')
@@ -179,29 +185,30 @@ def track(scores):
     return scores
 
 # init
+args = parse_args()
 # pretrain detector
 pretrain_config_file = 'mmdetection/configs/detectors/detectors_htc_r50_1x_coco.py'
 pretrain_checkpoint_file = 'checkpoints/detectors_htc_r50_1x_coco-329b1453.pth'
 pretrain_detector = init_detector(pretrain_config_file, pretrain_checkpoint_file)
 # detector
 config_file = 'mmdetection/configs/detectors/detectors_cascade_rcnn_r50_1x_coco.py'
-checkpoint_file = 'checkpoints/detectors_cascade_rcnn.pth'
+checkpoint_file = args.detector
 detector = init_detector(config_file, checkpoint_file)
 # feature model
 config_file = 'configs/efficientnet-b0_8xb32-01norm_in1k.py'
-checkpoint_file='checkpoints/feature.pth'
+checkpoint_file = args.feature
 feature_model = init_model(config_file, checkpoint_file)
 # model b2
 config_file = 'mmclassification/configs/efficientnet/efficientnet-b2_8xb32-01norm_in1k.py'
-checkpoint_file = 'checkpoints/b2.pth'
+checkpoint_file = args.b2
 model_b2 = init_model(config_file, checkpoint_file)
 # model resnest50
 config_file = 'mmclassification/configs/resnest/resnest50_32xb64_in1k.py'
-checkpoint_file = 'checkpoints/s50.pth'
+checkpoint_file = args.resnest50
 model_s50 = init_model(config_file, checkpoint_file)
 # model resnest 101
 config_file = 'mmclassification/configs/resnest/resnest101_32xb64_in1k.py'
-checkpoint_file = 'checkpoints/s101.pth'
+checkpoint_file = args.resnest101
 model_s101 = init_model(config_file, checkpoint_file)
 
 def process(video_id):
@@ -384,7 +391,6 @@ def process(video_id):
 
 
 if __name__ == '__main__':
-    args = parse_args()
 
     frame_path = args.input_folder
     videos = os.listdir(frame_path)
