@@ -11,12 +11,13 @@ google-auth-oauthlib==0.4.6
 grpcio==1.46.3
 idna==3.3
 importlib-metadata==4.11.4
+joblib==1.1.0
 kiwisolver==1.4.3
 Markdown==3.3.7
 matplotlib==3.5.2
--e git+https://github.com/w-sugar/DTC_AICITY2022@c6ebe255c6b3a384375fb83d82e7ad21b58be28a#egg=mmcls&subdirectory=mmclassification
+-e git+https://github.com/w-sugar/DTC_AICITY2022@377a21aee11ad3584b9d5aaa0d3988cf176233e3#egg=mmcls&subdirectory=mmclassification
 mmcv-full==1.4.3
--e git+https://github.com/w-sugar/DTC_AICITY2022@c6ebe255c6b3a384375fb83d82e7ad21b58be28a#egg=mmdet&subdirectory=mmdetection
+-e git+https://github.com/w-sugar/DTC_AICITY2022@377a21aee11ad3584b9d5aaa0d3988cf176233e3#egg=mmdet&subdirectory=mmdetection
 numpy==1.21.6
 oauthlib==3.2.0
 opencv-python==4.6.0.66
@@ -32,11 +33,15 @@ PyYAML==6.0
 requests==2.28.0
 requests-oauthlib==1.3.1
 rsa==4.8
+scikit-learn==0.19.2
+scipy==1.7.3
 six==1.16.0
+sklearn==0.0
 tensorboard==2.9.1
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
 terminaltables==3.1.10
+threadpoolctl==3.1.0
 torch==1.10.1+cu102
 torchaudio==0.10.1+rocm4.1
 torchvision==0.11.2+cu102

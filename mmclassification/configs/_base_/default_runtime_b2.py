@@ -11,6 +11,6 @@ log_config = dict(
 
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = './models/efficientnet-b2_3rdparty_8xb32_in1k_20220119-ea374a30.pth'
+load_from = './models/efficientnet-b2_3rdparty_8xb32-aa-advprop_in1k_20220119-1655338a.pth'
 resume_from = None
 workflow = [('train', 1)]

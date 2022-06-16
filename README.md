@@ -28,8 +28,8 @@ data
 
 models
 ├── detectors_cascade_rcnn_r50_1x_coco-32a10ba0.pth
-├── efficientnet-b0_3rdparty_8xb32_in1k_20220119-a7e2a0b1.pth
-├── efficientnet-b2_3rdparty_8xb32_in1k_20220119-ea374a30.pth
+├── efficientnet-b0_3rdparty_8xb32-aa-advprop_in1k_20220119-26434485.pth
+├── efficientnet-b2_3rdparty_8xb32-aa-advprop_in1k_20220119-1655338a.pth
 ├── resnest50_imagenet_converted-1ebf0afe.pth
 ├── resnest101_imagenet_converted-032caa52.pth
 ```
